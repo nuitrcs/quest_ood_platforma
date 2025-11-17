@@ -5,6 +5,8 @@
 export LISTENPORT=$(find_port localhost 7000 11000 )
 export LISTENHTTPPORT=$(find_port localhost 7000 11000 )
 export MONITORPORT=$(find_port localhost 7000 11000 )
+export port=${LISTENPORT}
+
 
 # This is for conn_params
 export ssh_tunnel="ssh -L ${LISTENPORT}:localhost:${LISTENPORT} ${LISTENHTTPPORT}:localhost:${LISTENHTTPPORT} ${MONITORPORT}:localhost:${MONITORPORT} $USER@login.quest.northwestern.edu ssh -N -L ${LISTENPORT}:localhost:${LISTENPORT} ${LISTENHTTPPORT}:localhost:${LISTENHTTPPORT} ${MONITORPORT}:localhost:${MONITORPORT} ${host}"

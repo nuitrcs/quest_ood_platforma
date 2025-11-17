@@ -1,0 +1,11 @@
+# Export the module function if it exists
+[[ $(type -t module) == "function" ]] && export -f module
+
+# Find available port to run server on
+export LISTENPORT=$(find_port localhost 7000 11000 )
+export LISTENHTTPPORT=$(find_port localhost 7000 11000 )
+export MONITORPORT=$(find_port localhost 7000 11000 )
+
+# This is for conn_params
+export ssh_tunnel="ssh -L ${LISTENPORT}:localhost:${LISTENPORT} ${LISTENHTTPPORT}:localhost:${LISTENHTTPPORT} ${MONITORPORT}:localhost:${MONITORPORT} $USER@login.quest.northwestern.edu ssh -N -L ${LISTENPORT}:localhost:${LISTENPORT} ${LISTENHTTPPORT}:localhost:${LISTENHTTPPORT} ${MONITORPORT}:localhost:${MONITORPORT} ${host}"
+export connection_string="https://localhost:${port}"

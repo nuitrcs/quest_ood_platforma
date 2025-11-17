@@ -1,0 +1,30 @@
+#!/usr/bin/env bash
+<%
+session_dir = session.staged_root
+fileObject = File.open("#{Dir.home}/.groupdata_ondemand_out.txt", "r");
+all_slurm_allocations = fileObject.read();
+fileObject.close();
+list_of_general_access_allocations = []
+list_of_buyin_allocations = []
+all_slurm_allocations = all_slurm_allocations.split(",")
+all_slurm_allocations.each do |slurm_allocation|
+    if slurm_allocation.include? "p"
+        list_of_general_access_allocations.append(slurm_allocation)
+    elsif slurm_allocation.include? "b"
+        list_of_buyin_allocations.append(slurm_allocation)
+    end
+end
+%>
+  
+# Clean the environment 
+module purge
+
+# Set working directory to HOME
+cd "${HOME}"
+
+# Set variables
+export WORKING_DIR="<%= session_dir %>"
+
+/platforma/binaries/platforma --license-file $HOME/.mi.license --listen-port ${LISTENPORT} --listen-http-port ${LISTENHTTPPORT} --monitoring-port ${MONITORPORT}  --runner-local-cpu $SLURM_NPROCS   --runner-local-ram $((${SLURM_MEM_PER_NODE} * 1000))
+
+

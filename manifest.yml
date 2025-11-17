@@ -1,0 +1,11 @@
+---
+name: Platforma
+icon: fa://server
+category: Interactive Apps
+subcategory: Servers
+role: batch_connect
+description: |
+  This app will launch the [Platforma] Server on the [Quest cluster].
+
+  [Platforma]: https://platforma.bio
+  [Quest cluster]: https://www.it.northwestern.edu/departments/it-services-support/research/computing/quest/index.html

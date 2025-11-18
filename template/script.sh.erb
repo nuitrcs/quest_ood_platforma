@@ -25,6 +25,7 @@ cd "${HOME}"
 # Set variables
 export WORKING_DIR="<%= session_dir %>"
 
-/platforma/binaries/platforma --license-file $HOME/.mi.license --listen-port ${LISTENPORT} --listen-http-port ${LISTENHTTPPORT} --monitoring-port ${MONITORPORT}  --runner-local-cpu $SLURM_NPROCS   --runner-local-ram $((${SLURM_MEM_PER_NODE} * 1000))
+
+/platforma/binaries/platforma --license-file $HOME/.mi.license --listen-port ${LISTENPORT} --listen-http-port ${LISTENHTTPPORT} --monitoring-port ${MONITORPORT}  --runner-local-cpu $SLURM_NPROCS   --runner-local-ram $((${SLURM_MEM_PER_NODE} * 10000))
 
 

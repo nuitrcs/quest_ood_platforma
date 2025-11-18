@@ -1,1 +1,1 @@
-cat output.log | grep Address
+cat output.log | grep Address > file.txt

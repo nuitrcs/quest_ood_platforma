@@ -1,7 +1,7 @@
 # Wait for the Platforma server to start
 echo "Waiting for Platforma server to open port ${port}..."
 echo "TIMING - Starting wait at: $(date)"
-if wait_until_port_used "${host}:${port}" 180; then
+if wait_until_port_used "http://127.0.0.1:${port}" 180; then
   echo "Discovered Platforma server listening on port ${port}!"
   echo "TIMING - Wait ended at: $(date)"
   export platformaurl=`cat output.log | grep Address`

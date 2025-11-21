@@ -4,7 +4,7 @@ echo "TIMING - Starting wait at: $(date)"
 if wait_until_port_used "localhost:${port}" 240; then
   echo "Discovered Platforma server listening on port ${port}!"
   echo "TIMING - Wait ended at: $(date)"
-  until sed -i -n 'Address' file; do
+  until sed -i -n '/^(Address)$/p' file; do
     sleep 5
   done
   export platformaurl=`cat output.log | grep Address`

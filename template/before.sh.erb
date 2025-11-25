@@ -10,4 +10,4 @@ export port=${LISTENPORT}
 
 # This is for conn_params
 export ssh_tunnel="ssh -L ${LISTENPORT}:localhost:${LISTENPORT} -L ${LISTENHTTPPORT}:localhost:${LISTENHTTPPORT} -L ${MONITORPORT}:localhost:${MONITORPORT} $USER@login.quest.northwestern.edu ssh -N -L ${LISTENPORT}:localhost:${LISTENPORT} -L ${LISTENHTTPPORT}:localhost:${LISTENHTTPPORT} -L ${MONITORPORT}:localhost:${MONITORPORT} ${host}"
-#export platformaurl=${PLATFORMAURL}
+export platformaurl=`sed -n /Address/p output.log`

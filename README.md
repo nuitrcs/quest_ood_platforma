@@ -1,3 +1,3 @@
-# Batch Connect - Quest App Template
+# Quest OnDemand Platforma App
 
-A Batch Connect app designed for Quest OnDemand that launches XXXX.
+A Batch Connect app designed for Quest OnDemand that launches Platforma Backend Server.

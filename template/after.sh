@@ -11,7 +11,7 @@ if wait_until_port_used "localhost:${port}" 240; then
  # until [ -s output.log ] & [ -n $"sed -n /Address/p output.log" ]; do
  #   sleep 5
  # done
-  export PLATFORMAURL=`sed -n /Address/p output.log`
+  export platformaurl=`sed -n /Address/p output.log`
 else
   echo "Timed out waiting for Platforma server to open port ${port}!"
   echo "TIMING - Wait ended at: $(date)"

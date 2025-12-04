@@ -25,7 +25,11 @@ cd "${HOME}"
 # Set variables
 export WORKING_DIR="<%= session_dir %>"
 
-
+<%- if aws-storage == "" %>
 /platforma/binaries/platforma --license-file $HOME/.mi.license --listen-port ${LISTENPORT} --listen-http-port ${LISTENHTTPPORT} --monitoring-port ${MONITORPORT}  --runner-local-cpu $SLURM_NPROCS   --runner-local-ram $((${SLURM_MEM_PER_NODE} * 1048576))
+<% end %>
 
+<%- if aws-storage != "" %>
+ /platforma/binaries/platforma --license-file $HOME/.mi.license --listen-port ${LISTENPORT} --listen-http-port ${LISTENHTTPPORT} --monitoring-port ${MONITORPORT}  --runner-local-cpu $SLURM_NPROCS   --runner-local-ram $((${SLURM_MEM_PER_NODE} * 1048576)) --primary-storage-s3 ${aws-storage}
+<% end %>
 

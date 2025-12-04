@@ -23,6 +23,8 @@ form:
   - memory_per_node
   # How many hours do you want to run this job for
   - bc_num_hours
+  # Use AWS S3 bucket as primary storage
+  - aws-storage
   # User can supply e-mail if they would like to be e-mailed when the session begins
   - user_email
   # Allow the user to provide a Slurm "constraint" option
@@ -105,6 +107,11 @@ attributes:
     max: 473
     step: 1
     id: 'memory_per_node'
+
+  aws-storage:
+    label: "AWS S3 Storage (Optional)"
+    help: |
+       Enter an S3 bucket location if you have one you would like to use for storage of Platforma results. Format should be s3://bucket-name/platforma-results
 
   user_email:
     label: "Email Address (Optional)"
